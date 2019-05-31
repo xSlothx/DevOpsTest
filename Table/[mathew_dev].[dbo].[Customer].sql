@@ -3,7 +3,7 @@ SET QUOTED_IDENTIFIER ON
 
 CREATE TABLE [dbo].[Customer] (
 	[CustomerId] int NOT NULL,
-	[FirstName] varchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[FirstName] varchar(40) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[LastName] varchar(30) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[Phone] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 	[Address] varchar(40) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -19,10 +19,13 @@ CREATE TABLE [dbo].[Customer] (
 ) ON [PRIMARY]
 CREATE INDEX [Customer_IE1]
  ON [dbo].[Customer] ([LastName])
+WITH (FILLFACTOR=100)
 ON [PRIMARY]
 CREATE INDEX [Customer_IE2]
  ON [dbo].[Customer] ([Phone])
+WITH (FILLFACTOR=100)
 ON [PRIMARY]
 CREATE INDEX [Customer_IE3]
  ON [dbo].[Customer] ([Zip])
+WITH (FILLFACTOR=100)
 ON [PRIMARY]
